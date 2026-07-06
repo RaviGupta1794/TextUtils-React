@@ -19,9 +19,8 @@ export default function TextForm(props) {
   };
 
   const handleCopy = () => {
-    const textBox = document.getElementById("floatingTextarea2");
-    textBox.select();
-    navigator.clipboard.writeText(textBox.value);
+    
+    navigator.clipboard.writeText(text);
     props.showAlert("Text Copied!", "success");
   };
 
@@ -105,14 +104,14 @@ export default function TextForm(props) {
 
         <p>
           {
-            text.split(" ").filter((element) => element.length !== 0).length
+            text.split(/\s+/).filter((element) => element.length !== 0).length
           }{" "}
           words, {text.length} characters
         </p>
 
         <p>
           {0.008 *
-            text.split(" ").filter((element) => element.length !== 0).length}{" "}
+            text.split(/\s+/).filter((element) => element.length !== 0).length}{" "}
           Minutes to read
         </p>
 
